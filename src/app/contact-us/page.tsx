@@ -48,7 +48,7 @@ export default function ContactUs() {
             <FaPhoneAlt className="text-4xl text-[#7DCFCC]" />
             <div>
               <h3 className="text-2xl font-bold mb-1">Call Us</h3>
-              <p className="text-lg">+60 123-456 789</p>
+              <p className="text-lg">+03-2300 9256</p>
             </div>
           </motion.div>
 
