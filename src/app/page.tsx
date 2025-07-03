@@ -281,6 +281,73 @@ export default function Home() {
           ))}
         </div>
       </section>
+      {/* WHY CHOOSE US */}
+      {/* WHY CHOOSE US */}
+      <section className="w-full bg-[#343333] py-16 px-6 flex flex-col items-center text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-semibold mb-10 text-[#EFB82C]"
+        >
+          Why Choose XESPC
+        </motion.h2>
+        <div className="w-full max-w-3xl">
+          {whyChooseItems.map((item, index) => {
+            const IconComponent =
+              index === 0
+                ? Briefcase
+                : index === 1
+                  ? Settings
+                  : index === 2
+                    ? ShieldCheck
+                    : index === 3
+                      ? BarChart3
+                      : index === 4
+                        ? AlertTriangle
+                        : Wrench;
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="mb-4 bg-[#00A19C]/20 rounded-lg overflow-hidden"
+              >
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full flex justify-between items-center px-6 py-4 text-left text-[#EFB82C] font-semibold focus:outline-none"
+                >
+                  <div className="flex items-center gap-3">
+                    <IconComponent className="text-[#EFB82C]" size={24} />
+                    <span>{item.question}</span>
+                  </div>
+                  {activeIndex === index ? (
+                    <FaMinus className="text-[#EFB82C]" />
+                  ) : (
+                    <FaPlus className="text-[#EFB82C]" />
+                  )}
+                </button>
+                {activeIndex === index && (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className="px-6 pb-4 text-[#EFB82C] text-left"
+                  >
+                    <p>{item.answer}</p>
+                  </motion.div>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
 
       {/* CONTACT */}
       <section className="w-full py-20 px-6 bg-[#EFB82C] flex flex-col items-center text-center ">
