@@ -97,6 +97,66 @@ export default function Home() {
           <FaArrowDown className="text-[#343333] text-2xl animate-bounce" />
         </div>
       </section>
+      {/* CLIENTS SECTION */}
+      <section className="w-full bg-[#EFB82C] py-12 px-6 overflow-hidden relative">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-semibold mb-8 text-[#343333] text-center"
+        >
+          Clients We’ve Worked With
+        </motion.h2>
+
+        <div className="overflow-hidden max-w-5xl mx-auto">
+          <motion.div
+            className="flex gap-8 w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              repeat: Infinity,
+              duration: 5,
+              ease: "linear",
+            }}
+          >
+            {/* Duplicate logos for seamless effect */}
+            {[...Array(2)].flatMap((_, i) => [
+              <Image
+                key={`petronas-${i}`}
+                src="/petronas-logo.png"
+                alt="Petronas"
+                width={100}
+                height={50}
+                className="object-contain"
+              />,
+              <Image
+                key={`shell-${i}`}
+                src="/shell-logo.png"
+                alt="Shell"
+                width={100}
+                height={50}
+                className="object-contain"
+              />,
+              <Image
+                key={`pttep-${i}`}
+                src="/pttep-logo.png"
+                alt="PTTEP"
+                width={100}
+                height={50}
+                className="object-contain"
+              />,
+              <Image
+                key={`worley-${i}`}
+                src="/worley-logo.png"
+                alt="Worley"
+                width={140}
+                height={50}
+                className="object-contain"
+              />,
+            ])}
+          </motion.div>
+        </div>
+      </section>
 
       {/* ABOUT SECTION */}
       <section className="w-full bg-[#343333] flex flex-col items-center text-center py-16 px-6">

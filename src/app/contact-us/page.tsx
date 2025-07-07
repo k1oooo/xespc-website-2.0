@@ -13,7 +13,7 @@ export default function ContactUs() {
   return (
     <main className="flex flex-col items-center justify-center bg-[#7DCFCC]">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

@@ -61,7 +61,7 @@ export default function WhatWeDo() {
   return (
     <main className="flex flex-col items-center justify-center">
       {/* Hero */}
-      <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
+      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
         <div className="absolute inset-0 bg-gradient-to-r from-[#7DCFCC]/80 via-[#7DCFCC]/50 to-[#7DCFCC]/80 opacity-70 z-0" />
         <motion.div
           initial={{ opacity: 0, y: 40 }}
