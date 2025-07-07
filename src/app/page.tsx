@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowDown, FaPlus, FaMinus, FaArrowRight } from "react-icons/fa";
@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -57,7 +57,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="flex flex-col md:flex-row items-center justify-center max-w-6xl gap-10"
+          className="flex flex-col md:flex-row items-center justify-center max-w-6xl gap-6 sm:gap-8 md:gap-10"
         >
           <div className="w-full md:w-1/2 flex justify-center md:justify-start">
             <Image
@@ -68,13 +68,12 @@ export default function Home() {
               className="rounded-xl shadow-md w-full aspect-[4/3] object-cover"
             />
           </div>
-
           <div className="flex flex-col items-center md:items-start text-center md:text-left max-w-xl">
-            <h1 className="text-5xl font-bold mb-6 leading-tight text-[#EFB82C]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight text-[#EFB82C]">
               Welcome to <br />
               <span className="text-[#343333]">XESP Consulting</span>
             </h1>
-            <p className="text-xl mb-10 text-white">
+            <p className="text-lg sm:text-xl mb-8 text-white">
               Innovative engineering solutions tailored to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -97,32 +96,27 @@ export default function Home() {
           <FaArrowDown className="text-[#343333] text-2xl animate-bounce" />
         </div>
       </section>
+
       {/* CLIENTS SECTION */}
-      <section className="w-full bg-[#EFB82C] py-12 px-6 overflow-hidden relative">
+      <section className="w-full bg-[#EFB82C] py-12 px-6 overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-semibold mb-8 text-[#343333] text-center"
+          className="text-3xl sm:text-4xl font-semibold mb-8 text-[#343333] text-center"
         >
           Clients We’ve Worked With
         </motion.h2>
-
         <div className="overflow-hidden max-w-5xl mx-auto">
           <motion.div
             className="flex gap-8 w-max"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 5,
-              ease: "linear",
-            }}
+            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
           >
-            {/* Duplicate logos for seamless effect */}
             {[...Array(2)].flatMap((_, i) => [
               <Image
-                key={`petronas-${i}`}
+                key={`p-${i}`}
                 src="/petronas-logo.png"
                 alt="Petronas"
                 width={100}
@@ -130,7 +124,7 @@ export default function Home() {
                 className="object-contain"
               />,
               <Image
-                key={`shell-${i}`}
+                key={`s-${i}`}
                 src="/shell-logo.png"
                 alt="Shell"
                 width={100}
@@ -138,7 +132,7 @@ export default function Home() {
                 className="object-contain"
               />,
               <Image
-                key={`pttep-${i}`}
+                key={`pt-${i}`}
                 src="/pttep-logo.png"
                 alt="PTTEP"
                 width={100}
@@ -146,7 +140,7 @@ export default function Home() {
                 className="object-contain"
               />,
               <Image
-                key={`worley-${i}`}
+                key={`w-${i}`}
                 src="/worley-logo.png"
                 alt="Worley"
                 width={140}
@@ -165,7 +159,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-semibold mb-4 text-[#00A19C]"
+          className="text-3xl sm:text-4xl font-semibold mb-4 text-[#00A19C]"
         >
           Who We Are
         </motion.h2>
@@ -174,7 +168,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-2xl text-xl text-[#EFB82C]"
+          className="max-w-2xl text-lg sm:text-xl text-[#EFB82C]"
         >
           At XESPC Consulting, we deliver cutting-edge engineering and project
           consulting across Malaysia and beyond.
@@ -187,7 +181,7 @@ export default function Home() {
         >
           <Link
             href="/who-we-are"
-            className="mt-6 inline-block underline text-[#00A19C] hover:text-[#EFB82C] transition-colors duration-300 text-xl"
+            className="mt-6 inline-block underline text-[#00A19C] hover:text-[#EFB82C] transition-colors duration-300 text-lg sm:text-xl"
           >
             Learn More
           </Link>
@@ -201,11 +195,11 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-semibold mb-10 text-[#343333]"
+          className="text-3xl sm:text-4xl font-semibold mb-10 text-[#343333]"
         >
           What We Do
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl">
           {[
             {
               title: "Engineering Design",
@@ -270,25 +264,25 @@ export default function Home() {
         >
           <Link
             href="/what-we-do"
-            className="mt-10 inline-block underline text-[#343333] hover:text-[#00A19C] transition-colors duration-300 text-xl"
+            className="mt-10 inline-block underline text-[#343333] hover:text-[#00A19C] transition-colors duration-300 text-lg sm:text-xl"
           >
             View All Services
           </Link>
         </motion.div>
       </section>
 
-      {/* PROJECTS */}
+      {/* PROJECTS SECTION */}
       <section className="w-full bg-[#00A19C] py-16 px-6 flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-semibold mb-10 text-[#EFB82C]"
+          className="text-3xl sm:text-4xl font-semibold mb-10 text-[#EFB82C]"
         >
           Our Projects
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl">
           {[
             {
               img: "/refinery-upgrade.jpg",
@@ -326,7 +320,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.3 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
               className="bg-[#343333]/80 p-4 rounded-xl shadow-md hover:scale-105 transition-transform duration-300 text-[#EFB82C] flex flex-col"
             >
               <Image
@@ -342,15 +336,15 @@ export default function Home() {
           ))}
         </div>
       </section>
-      {/* WHY CHOOSE US */}
-      {/* WHY CHOOSE US */}
+
+      {/* WHY CHOOSE US SECTION */}
       <section className="w-full bg-[#343333] py-16 px-6 flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-semibold mb-10 text-[#EFB82C]"
+          className="text-3xl sm:text-4xl font-semibold mb-10 text-[#EFB82C]"
         >
           Why Choose XESPC
         </motion.h2>
@@ -394,7 +388,6 @@ export default function Home() {
                 </button>
                 {activeIndex === index && (
                   <motion.div
-                    layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -410,14 +403,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section className="w-full py-20 px-6 bg-[#EFB82C] flex flex-col items-center text-center ">
+      {/* CONTACT CTA SECTION */}
+      <section className="w-full py-20 px-6 bg-[#EFB82C] flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-5xl font-bold mb-4 text-[#343333]"
+          className="text-3xl sm:text-5xl font-bold mb-4 text-[#343333]"
         >
           Let’s Discuss Your Next Project
         </motion.h2>
@@ -426,7 +419,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-xl text-xl mb-8 text-[#00A19C]"
+          className="max-w-xl text-lg sm:text-xl mb-8 text-[#00A19C]"
         >
           Have a question or want to work together? Get in touch and we’ll
           respond promptly.
@@ -439,7 +432,7 @@ export default function Home() {
         >
           <Link
             href="/contact-us"
-            className="bg-[#343333] text-white py-4 px-10 rounded-full text-xl hover:bg-[#222] transition-colors duration-300"
+            className="bg-[#343333] text-white py-4 px-10 rounded-full text-lg sm:text-xl hover:bg-[#222] transition-colors duration-300"
           >
             Contact Us Now
           </Link>

@@ -46,11 +46,10 @@ export default function WhatWeDo() {
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
-          const yOffset = -80; // adjust for fixed navbar
+          const yOffset = -80;
           const y =
             el.getBoundingClientRect().top + window.pageYOffset + yOffset;
           window.scrollTo({ top: y, behavior: "smooth" });
-
           el.classList.add("highlight-pulse");
           setTimeout(() => el.classList.remove("highlight-pulse"), 2000);
         }
@@ -60,32 +59,32 @@ export default function WhatWeDo() {
 
   return (
     <main className="flex flex-col items-center justify-center">
-      {/* Hero */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
+      {/* HERO */}
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC] px-4 md:px-8 lg:px-12">
         <div className="absolute inset-0 bg-gradient-to-r from-[#7DCFCC]/80 via-[#7DCFCC]/50 to-[#7DCFCC]/80 opacity-70 z-0" />
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-center max-w-4xl px-6"
+          className="relative z-10 text-center max-w-4xl"
         >
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-6 drop-shadow-lg tracking-wide">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 tracking-wide drop-shadow-lg">
             What We Do
           </h1>
-          <p className="text-2xl text-gray-800 mb-10 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-800 mb-10 max-w-3xl mx-auto leading-relaxed">
             Explore how our specialized engineering and consulting services
             drive innovation and deliver success — from design to compliance.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link
               href="/contact-us"
-              className="bg-black text-white py-4 px-10 rounded-full text-xl hover:scale-105 hover:bg-[#333] transition-all duration-300 shadow-md"
+              className="bg-black text-white py-4 px-10 rounded-full text-lg sm:text-xl hover:scale-105 hover:bg-[#333] transition-all duration-300 shadow-md"
             >
               Start Your Project
             </Link>
             <Link
               href="/"
-              className="flex items-center gap-2 border border-black py-4 px-10 rounded-full text-xl hover:bg-black hover:text-white transition-colors duration-300 shadow-md"
+              className="flex items-center justify-center gap-2 border border-black py-4 px-10 rounded-full text-lg sm:text-xl hover:bg-black hover:text-white transition-colors duration-300 shadow-md"
             >
               Back Home <FaArrowRight />
             </Link>
@@ -96,9 +95,9 @@ export default function WhatWeDo() {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="w-full py-20 px-6 bg-[hsla(44,84%,55%,0.3)]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      {/* SERVICES */}
+      <section className="w-full py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[hsla(44,84%,55%,0.3)]">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
@@ -106,7 +105,7 @@ export default function WhatWeDo() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="bg-white/80 p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 flex flex-col items-center text-center"
+              className="bg-white/80 p-6 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 flex flex-col items-center text-center"
             >
               <div className="relative w-full aspect-[3/2] overflow-hidden rounded-xl shadow-md mb-6">
                 <Image
@@ -116,8 +115,10 @@ export default function WhatWeDo() {
                   className="object-cover"
                 />
               </div>
-              <h3 className="text-3xl font-bold mb-4">{service.title}</h3>
-              <p className="text-lg mb-6">{service.desc}</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+                {service.title}
+              </h3>
+              <p className="text-base sm:text-lg mb-6">{service.desc}</p>
               <Link
                 href="/contact-us"
                 className="flex items-center gap-2 border border-black py-2 px-6 rounded-full hover:bg-black hover:text-white transition-colors duration-300"
@@ -129,13 +130,13 @@ export default function WhatWeDo() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="w-full bg-[#7DCFCC] py-20 flex flex-col items-center text-center px-6">
+      {/* CTA */}
+      <section className="w-full bg-[#7DCFCC] py-16 md:py-20 flex flex-col items-center text-center px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-4"
+          className="text-3xl sm:text-4xl font-bold mb-4"
         >
           Ready to Start Your Project?
         </motion.h2>
@@ -143,7 +144,7 @@ export default function WhatWeDo() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl max-w-2xl mb-8"
+          className="text-lg sm:text-xl max-w-2xl mb-8"
         >
           Partner with XESPC Consulting to bring your vision to life with
           industry-leading expertise and innovative solutions.

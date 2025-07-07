@@ -20,10 +20,10 @@ export default function ContactUs() {
           transition={{ duration: 1 }}
           className="text-center max-w-3xl px-6"
         >
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-6 drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 drop-shadow-lg">
             Contact Us
           </h1>
-          <p className="text-2xl text-gray-800 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-800 max-w-2xl mx-auto leading-relaxed">
             We’d love to hear from you. Whether you have a question or want to
             discuss a project, our team is ready to help.
           </p>
@@ -43,12 +43,12 @@ export default function ContactUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white/80 p-8 rounded-xl shadow-md flex items-center gap-6"
+            className="bg-white/80 p-6 sm:p-8 rounded-xl shadow-md flex items-center gap-4 sm:gap-6"
           >
-            <FaPhoneAlt className="text-4xl text-[#7DCFCC]" />
+            <FaPhoneAlt className="text-3xl sm:text-4xl text-[#7DCFCC]" />
             <div>
-              <h3 className="text-2xl font-bold mb-1">Call Us</h3>
-              <p className="text-lg">+03-2300 9256</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-1">Call Us</h3>
+              <p className="text-base sm:text-lg">+03-2300 9256</p>
             </div>
           </motion.div>
 
@@ -57,12 +57,12 @@ export default function ContactUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white/80 p-8 rounded-xl shadow-md flex items-center gap-6"
+            className="bg-white/80 p-6 sm:p-8 rounded-xl shadow-md flex items-center gap-4 sm:gap-6"
           >
-            <FaEnvelope className="text-4xl text-[#7DCFCC]" />
+            <FaEnvelope className="text-3xl sm:text-4xl text-[#7DCFCC]" />
             <div>
-              <h3 className="text-2xl font-bold mb-1">Email Us</h3>
-              <p className="text-lg">info@xespc.com</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-1">Email Us</h3>
+              <p className="text-base sm:text-lg">info@xespc.com</p>
             </div>
           </motion.div>
 
@@ -71,12 +71,12 @@ export default function ContactUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white/80 p-8 rounded-xl shadow-md flex items-center gap-6"
+            className="bg-white/80 p-6 sm:p-8 rounded-xl shadow-md flex items-center gap-4 sm:gap-6"
           >
-            <FaMapMarkerAlt className="text-4xl text-[#7DCFCC]" />
+            <FaMapMarkerAlt className="text-3xl sm:text-4xl text-[#7DCFCC]" />
             <div>
-              <h3 className="text-2xl font-bold mb-1">Visit Us</h3>
-              <p className="text-lg">
+              <h3 className="text-xl sm:text-2xl font-bold mb-1">Visit Us</h3>
+              <p className="text-base sm:text-lg">
                 Level 23A, Naza Tower,
                 <br />
                 KL Platinum Park, Kuala Lumpur
@@ -91,9 +91,9 @@ export default function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex-[2] bg-white/80 p-8 rounded-xl shadow-lg space-y-6 w-full"
+          className="flex-[2] bg-white/80 p-6 sm:p-8 rounded-xl shadow-lg space-y-6 w-full"
         >
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">Get in Touch</h2>
           <input
             type="text"
             placeholder="Your Name"
@@ -126,7 +126,7 @@ export default function ContactUs() {
           ></textarea>
           <button
             type="submit"
-            className="bg-black text-white py-4 px-8 rounded-full hover:bg-[#444] transition-colors duration-300"
+            className="bg-black text-white py-4 px-8 rounded-full hover:bg-[#444] transition-colors duration-300 w-full sm:w-auto"
           >
             Send Message
           </button>
@@ -140,7 +140,7 @@ export default function ContactUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-center mb-10"
+          className="text-3xl sm:text-4xl font-bold text-center mb-10"
         >
           Find Us Here
         </motion.h2>

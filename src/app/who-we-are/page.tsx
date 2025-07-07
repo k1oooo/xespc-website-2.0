@@ -38,30 +38,29 @@ export default function WhoWeAre() {
 
   return (
     <main className="flex flex-col items-center justify-center bg-[hsla(44,84%,55%,0.3)]">
-      {/* Hero Section */}
-      <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
+      {/* HERO */}
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#7DCFCC] px-4 md:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-center max-w-3xl px-6"
+          className="text-center max-w-4xl"
         >
-          <h1 className="text-6xl font-extrabold text-gray-900 mb-6 drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
             Who We Are
           </h1>
-          <p className="text-2xl text-gray-800 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-800 leading-relaxed">
             Learn more about XESPC — our story, our team, and what drives us to
             deliver engineering excellence.
           </p>
         </motion.div>
-
         <div className="absolute bottom-8">
           <FaArrowDown className="text-black text-3xl animate-bounce" />
         </div>
       </section>
 
-      {/* About Company */}
-      <section className="w-full flex flex-col md:flex-row max-w-6xl mx-auto py-20 px-6 gap-10">
+      {/* ABOUT */}
+      <section className="w-full flex flex-col md:flex-row max-w-6xl mx-auto py-16 md:py-20 px-4 sm:px-6 lg:px-8 gap-8 md:gap-12">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -74,10 +73,9 @@ export default function WhoWeAre() {
             alt="About XESPC"
             width={500}
             height={400}
-            className="rounded-xl shadow-lg"
+            className="rounded-xl shadow-lg w-full h-auto object-cover"
           />
         </motion.div>
-
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -85,13 +83,13 @@ export default function WhoWeAre() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="md:w-1/2 flex flex-col justify-center"
         >
-          <h2 className="text-4xl font-bold mb-6">About XESPC</h2>
-          <p className="text-xl mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">About XESPC</h2>
+          <p className="text-lg sm:text-xl mb-4">
             At XESP Consulting, we combine decades of engineering expertise with
             a deep understanding of local and international standards to deliver
             tailored solutions.
           </p>
-          <p className="text-xl">
+          <p className="text-lg sm:text-xl">
             Our mission is simple — to help you achieve operational excellence
             through innovative designs, meticulous project management, and
             unwavering commitment to quality.
@@ -99,19 +97,18 @@ export default function WhoWeAre() {
         </motion.div>
       </section>
 
-      {/* Our Team */}
-      {/* Our Team */}
-      <section className="w-full py-20 px-6 bg-[#7DCFCC] flex flex-col items-center text-center">
+      {/* TEAM */}
+      <section className="w-full py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#7DCFCC] flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-10"
+          className="text-3xl sm:text-4xl font-bold mb-10"
         >
           Meet Our Leadership
         </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
           {[
             {
               name: "Ir. Ahmad",
@@ -145,7 +142,7 @@ export default function WhoWeAre() {
             >
               <Image
                 src={person.img}
-                alt={person.name}
+                alt={`${person.name}'s photo`}
                 width={200}
                 height={200}
                 className="rounded-full mx-auto mb-4"
@@ -158,14 +155,14 @@ export default function WhoWeAre() {
         </div>
       </section>
 
-      {/* Values Accordion */}
-      <section className="w-full py-20 px-6 flex flex-col items-center text-center">
+      {/* VALUES ACCORDION */}
+      <section className="w-full py-16 md:py-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-10"
+          className="text-3xl sm:text-4xl font-bold mb-10"
         >
           Our Mission & Values
         </motion.h2>
@@ -177,7 +174,9 @@ export default function WhoWeAre() {
               onClick={() => toggleAccordion(index)}
             >
               <div className="flex justify-between items-center">
-                <span className="font-semibold text-xl">{item.question}</span>
+                <span className="font-semibold text-lg sm:text-xl">
+                  {item.question}
+                </span>
                 <motion.div
                   initial={false}
                   animate={{ rotate: activeIndex === index ? 180 : 0 }}
@@ -198,7 +197,7 @@ export default function WhoWeAre() {
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
-                    className="overflow-hidden mt-2 text-gray-700 text-lg"
+                    className="overflow-hidden mt-2 text-gray-700 text-base sm:text-lg"
                   >
                     <p>{item.answer}</p>
                   </motion.div>
@@ -209,20 +208,20 @@ export default function WhoWeAre() {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="w-full py-20 px-6 bg-[#7DCFCC] flex flex-col items-center text-center">
+      {/* CTA */}
+      <section className="w-full py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#7DCFCC] flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-bold mb-6"
+          className="text-3xl sm:text-4xl font-bold mb-6"
         >
           Ready to Partner With Us?
         </motion.h2>
         <Link
           href="/contact-us"
-          className="bg-black text-white py-4 px-10 rounded-full text-xl hover:bg-[#444] transition-colors duration-300 shadow-md"
+          className="bg-black text-white py-4 px-8 sm:px-10 rounded-full text-lg sm:text-xl hover:bg-[#444] transition-colors duration-300 shadow-md"
         >
           Contact Us
         </Link>
