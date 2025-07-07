@@ -100,6 +100,7 @@ export default function WhoWeAre() {
       </section>
 
       {/* Our Team */}
+      {/* Our Team */}
       <section className="w-full py-20 px-6 bg-[#7DCFCC] flex flex-col items-center text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -115,17 +116,23 @@ export default function WhoWeAre() {
             {
               name: "Ir. Ahmad",
               role: "Managing Director",
-              img: "/team1.png",
+              img: "https://i.pravatar.cc/300?img=12",
+              description:
+                "Leads our strategic vision and ensures project excellence.",
             },
             {
               name: "Eng. Siti",
               role: "Project Lead",
-              img: "/team2.png",
+              img: "https://i.pravatar.cc/300?img=32",
+              description:
+                "Manages engineering teams and oversees key deliverables.",
             },
             {
               name: "Mr. Lim",
               role: "Compliance Advisor",
-              img: "/team3.png",
+              img: "https://i.pravatar.cc/300?img=45",
+              description:
+                "Ensures all operations meet rigorous industry standards.",
             },
           ].map((person, idx) => (
             <motion.div
@@ -143,8 +150,9 @@ export default function WhoWeAre() {
                 height={200}
                 className="rounded-full mx-auto mb-4"
               />
-              <h3 className="text-2xl font-bold">{person.name}</h3>
-              <p className="text-lg">{person.role}</p>
+              <h3 className="text-2xl font-bold mb-1">{person.name}</h3>
+              <p className="text-lg font-semibold mb-2">{person.role}</p>
+              <p className="text-gray-700 text-base">{person.description}</p>
             </motion.div>
           ))}
         </div>
