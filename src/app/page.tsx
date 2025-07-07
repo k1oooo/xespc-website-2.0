@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center justify-center">
       {/* HERO SECTION */}
-      <section className="w-full min-h-[calc(100vh-80px)] bg-[#00A19C] flex items-center justify-center px-6 relative overflow-hidden">
+      <section className="w-full h-screen bg-[#00A19C] flex items-center justify-center px-6 relative overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -194,7 +194,7 @@ export default function Home() {
                 <p className="text-[#343333] mb-4 text-center">{s.desc}</p>
               </div>
               <Link
-                href="/what-we-do"
+                href={`/what-we-do#${s.title.toLowerCase().replace(/\s+/g, "-")}`}
                 className="flex items-center gap-2 border border-[#343333] text-[#343333] py-2 px-6 rounded-full hover:bg-[#343333] hover:text-white transition-colors duration-300 mt-4"
               >
                 Learn More <FaArrowRight />
@@ -216,6 +216,7 @@ export default function Home() {
           </Link>
         </motion.div>
       </section>
+
       {/* PROJECTS */}
       <section className="w-full bg-[#00A19C] py-16 px-6 flex flex-col items-center text-center">
         <motion.h2

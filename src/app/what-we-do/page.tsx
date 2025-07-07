@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight, FaArrowDown } from "react-icons/fa";
+import { useEffect } from "react";
 
 export default function WhatWeDo() {
   const services = [
@@ -17,7 +18,6 @@ export default function WhatWeDo() {
       desc: "Our project management team ensures your initiatives are delivered on time and within budget. We coordinate all phases from planning to execution, minimizing risks and maximizing ROI.",
       icon: "/project-management.jpg",
     },
-
     {
       title: "Regulatory Compliance",
       desc: "Navigating complex regulations can be daunting. We simplify the process, ensuring your projects comply with local and international standards, such as ISO, API, and OSHA.",
@@ -40,14 +40,29 @@ export default function WhatWeDo() {
     },
   ];
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.substring(1);
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          const yOffset = -80; // adjust for fixed navbar
+          const y =
+            el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+
+          el.classList.add("highlight-pulse");
+          setTimeout(() => el.classList.remove("highlight-pulse"), 2000);
+        }
+      }, 1000);
+    }
+  }, []);
+
   return (
     <main className="flex flex-col items-center justify-center">
       {/* Hero */}
       <section className="relative w-full min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-[#7DCFCC]">
-        {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#7DCFCC]/80 via-[#7DCFCC]/50 to-[#7DCFCC]/80 opacity-70 z-0" />
-
-        {/* Content */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,22 +91,20 @@ export default function WhatWeDo() {
             </Link>
           </div>
         </motion.div>
-
-        {/* Bouncing down arrow */}
         <div className="absolute bottom-8 z-10">
           <FaArrowDown className="text-black text-3xl animate-bounce" />
         </div>
       </section>
 
-      {/* Services Section with your background color */}
+      {/* Services */}
       <section className="w-full py-20 px-6 bg-[hsla(44,84%,55%,0.3)]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           {services.map((service, idx) => (
             <motion.div
               key={idx}
+              id={service.title.toLowerCase().replace(/\s+/g, "-")}
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="bg-white/80 p-8 rounded-xl shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-300 flex flex-col items-center text-center"
             >
@@ -120,8 +133,7 @@ export default function WhatWeDo() {
       <section className="w-full bg-[#7DCFCC] py-20 flex flex-col items-center text-center px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold mb-4"
         >
@@ -129,8 +141,7 @@ export default function WhatWeDo() {
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xl max-w-2xl mb-8"
         >
@@ -139,8 +150,7 @@ export default function WhatWeDo() {
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <Link
